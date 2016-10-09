@@ -1,6 +1,5 @@
 # AutoScrollView
 
-AutoScrollView is used to load remote and local images, and automatically scroll.
 
 ![](2.gif)
 

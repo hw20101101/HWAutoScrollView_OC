@@ -48,13 +48,7 @@ AutoScrollView is used to load remote and local images, and automatically scroll
 ```
 
 ### Installation
-
-There are three ways to use SDWebImage in your project:
-
-   * using CocoaPods
-
-
-#### Installation with CocoaPods
+ 
 Podfile
 
 ```

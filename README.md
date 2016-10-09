@@ -1,14 +1,17 @@
 # AutoScrollView
 
-
-##### 效果图：
+AutoScrollView is used to load remote and local images, and automatically scroll.
 
 ![](2.gif)
 
+### Requirements
 
-##### 用法:
+* iOS 7.0 or later
+	
 
-* 根据远程图片创建轮播视图:
+### How To Use
+
+* load remote image:
 
 ```
 	NSArray *imageUrlArray = @[@"http://pic24.nipic.com/20121003/10754047_140022530392_2.jpg", @"http://img15.3lian.com/2015/a1/13/d/17.jpg", @"http://pic36.nipic.com/20131022/7786988_135813187182_2.jpg"];
@@ -26,7 +29,7 @@
 
 ```
 
-* 根据本地图片创建轮播视图:
+* load local image:
 
 ```
 	NSArray *imageNameArray = @[@"0001_meitu", @"0002_meitu", @"0003_meitu"];
@@ -44,7 +47,36 @@
 
 ```
 
-##### 安装：
-* 下载此Demo之后，拖动HWAutoScrollView文件夹到项目中，导入HWAutoScrollView.h
-* 此工具类依赖Masonry和SDWebImage，使用前请确保已安装Masonry和SDWebImage。
+### Installation
+
+There are three ways to use SDWebImage in your project:
+
+   * using CocoaPods
+
+
+#### Installation with CocoaPods
+Podfile
+
+```
+platform :ios, '7.0'
+pod 'HWAutoScrollView'
+```
+
+Complete the installation by executing:
+
+```
+$ pod install
+```
+
+##### Import headers in your source files
+
+In the source files where you need to use the library, import the header file:
+
+```
+#import "HWAutoScrollView.h"
+```
+
+
+
+
 

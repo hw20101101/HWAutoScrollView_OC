@@ -89,10 +89,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "HWAutoScrollView", "HWAutoScrollView/*.{h,m}"
+  s.source_files  = "HWAutoScrollView", "HWAutoScrollView/**/*.{h,m}"
   s.exclude_files = "HWAutoScrollView/Exclude"
-
-  s.public_header_files = 'HWAutoScrollView/HeaderFiles.h'
    
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -129,8 +127,10 @@ Pod::Spec.new do |s|
 
    s.requires_arc = true
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+   s.public_header_files = 'HWAutoScrollView/HeaderFiles.h'
+   s.source_files = 'HWAutoScrollView/HeaderFiles.h' 
+
    s.dependency "Masonry" 
-   s.dependency "SDWebImage" 
+   s.dependency "SDWebImage"  
 
 end

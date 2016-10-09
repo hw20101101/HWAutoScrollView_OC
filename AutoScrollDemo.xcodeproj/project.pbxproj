@@ -113,9 +113,9 @@
 		C50F6B801D90278200985DA0 /* HWAutoScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				C5B0B2651DA94EF600AAA65B /* HeaderFiles.h */,
 				C50F6B811D90279B00985DA0 /* HWAutoScrollView.h */,
 				C50F6B821D90279B00985DA0 /* HWAutoScrollView.m */,
-				C5B0B2651DA94EF600AAA65B /* HeaderFiles.h */,
 			);
 			path = HWAutoScrollView;
 			sourceTree = "<group>";

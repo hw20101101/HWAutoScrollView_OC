@@ -20,7 +20,7 @@ typedef NS_ENUM(NSInteger, HWPageControlPosition) {
  * 图片点击事件
  * imageIndex:图片索引
  */
-@property (nonatomic, copy) void (^imageOnClickCallBack) (int imageIndex);
+@property (nonatomic, copy) void (^imageOnClickCallBack) (NSInteger imageIndex);
 
 /**
  * 分页控制器的位置

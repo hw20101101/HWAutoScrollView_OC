@@ -11,6 +11,11 @@
 @interface HWAutoScrollView ()<UIScrollViewDelegate>
 
 /**
+ 最后一页是否正在滚动中
+ */
+@property (nonatomic, assign) BOOL isScrolling;
+
+/**
  * 轮播的图片数组
  */
 @property (nonatomic, strong) NSArray *imageArray;
@@ -77,7 +82,7 @@
     [self addSubview:self.pageControl];
     [self initImageViews:isRemote];
     self.pageControlWidth = self.imageArray.count * 16;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timingAction) userInfo:nil repeats:YES];
+//    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(timingAction) userInfo:nil repeats:YES];
 }
 
 /**
@@ -169,7 +174,7 @@
 {
     [self.timer invalidate];
     self.timer = nil;
-    int tag = tap.view.tag;
+    NSInteger tag = tap.view.tag;
     
     if (self.imageOnClickCallBack) {
         self.imageOnClickCallBack(tag);
@@ -179,9 +184,28 @@
 #pragma mark - scrollView delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    int index = scrollView.contentOffset.x / SCREEN_WIDTH;
-    self.pageControl.currentPage = index;
+    self.pageControl.currentPage = scrollView.contentOffset.x / SCREEN_WIDTH;
     [self.pageControl updateCurrentPageDisplay];
+    
+    if (self.isScrolling) {
+        return;
+    }
+    
+    //最后一页图片的x + width
+    CGFloat allImageWidth = (self.imageArray.count - 1) * SCREEN_WIDTH;
+    if (scrollView.contentOffset.x > allImageWidth) {//从最后一页往下一页滚动
+        self.isScrolling = YES;
+        [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        [scrollView setScrollEnabled:NO];
+    }
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    if (self.isScrolling) {//从最后一页往下一页滚动结束时设置
+        [scrollView setScrollEnabled:YES];
+        self.isScrolling = NO;
+    }
 }
 
 - (void)layoutSubviews
